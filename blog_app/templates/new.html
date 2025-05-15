@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>New Article</h1>
-    <form action="/add-article" method="post">
+    <form action="/add-article/" method="post">
+        {% csrf_token %}
         <label for="title">Article Title</label>
         <input type="text" name="title" id="title">
         <label for="date">Publishing Date</label>
