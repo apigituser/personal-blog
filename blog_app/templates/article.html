@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        {% for key,value in payload.items %}
+            <h1>{{ value.title }} </h1>
+            <p>Published On: {{ value.published }}</p>
+            <p>{{ value.content }}</p>
+        {% endfor %}
+    </h2>
+</body>
+</html>
