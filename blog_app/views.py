@@ -31,7 +31,6 @@ def new(request):
 
         if form.is_valid():
             date = datetime.datetime.now().strftime('%B %d, %Y')
-            # date = datetime.datetime.now().strftime("%d/%m/%Y")
             id = len(files) + 1
             article = {id: form.cleaned_data}
             article[id].update({'published': date})
