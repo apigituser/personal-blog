@@ -10,7 +10,9 @@
     <h3>
         {% for elem in payload %}
             {% for id,article in elem.items %}
-                <a href="/article/{{id}}">{{article.title}}</a>
+                <div>
+                    <a href="/article/{{id}}">{{article.title}}</a> {{article.published}}
+                </div>
                 <p></p>
             {% endfor %}
         {% endfor %}
