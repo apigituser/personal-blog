@@ -1,7 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import Article
+from .forms import Article, Login
 import json, datetime, os
+
+def admin(request):
+    if request.method == "POST":
+        form = Login(request.POST)
+
+        if form.is_valid():
+            payload = form.cleaned_data
+            with open('creds.json') as creds:
+                data = json.load(creds)
+                if (data['username'] != payload['username']) or (data['password'] != payload['password']):
+                    return HttpResponse('Invalid Login Credentials')
+                return render(request, 'admin.html')
+        else:
+            return HttpResponse('Invalid Form for some reason')
+    else: 
+        return render(request, 'login.html')
+
 
 def article(request, id):
     files = os.listdir("./articles/")
